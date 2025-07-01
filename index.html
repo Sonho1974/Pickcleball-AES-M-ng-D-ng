@@ -8,7 +8,35 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="style.css" />
+
+   
     <style>
+
+       * {
+      box-sizing: border-box;
+    }
+    .banner-container {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+    .banner-slide {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.banner-slide img {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+}
+   
       body {
         font-family: "Roboto", sans-serif;
         margin: 0;
@@ -133,7 +161,9 @@
   </head>
   <body>
     <header>
-      <h1>Pickleball AES Mông Dương</h1>
+    <div class="marquee">
+<span>Welcome to AES Mông Dương Pickleball Club!</span>
+</div>
     </header>
 
     <nav class="main-menu">
@@ -202,6 +232,14 @@
            </ul>
        
     </nav>
+
+    <body>
+  <div class="banner-container">
+    <div class="banner-slide">
+      <img src="PKB-AES-MD-1 (21).jpg" alt="">
+    </div>
+  </div>
+</body>
 
     <div class="datetime"><span id="datetime"></span></div>
 
@@ -312,5 +350,6 @@
         }
       }
     </script>
+    <script src="banner.js"></script>
   </body>
 </html>
