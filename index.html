@@ -59,58 +59,78 @@
 .contact-details a:hover {
   text-decoration: underline;
 }
+---------------------------------------
 
-      nav.main-menu ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      nav.main-menu ul li {
-        position: relative;
-        margin: 0 15px;
-      }
-      nav.main-menu ul li a {
-        color: white;
-        font-weight: bold;
-        font-size: 16px;
-        text-decoration: none;
-        padding: 10px 14px;
-        display: inline-block;
-        border-radius: 5px;
-      }
-      nav.main-menu ul li a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
+nav.main-menu {
+  background: #343a40;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 
-      nav.main-menu ul li:hover .dropdown-content {
-        display: block;
-      }
+.menu-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
 
-      nav.main-menu ul li .dropdown-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        background-color: #343a40;
-        min-width: 220px;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-      }
-      .dropdown-content li {
-        text-align: left;
-      }
-      .dropdown-content li a {
-        padding: 12px 16px;
-        color: white;
-        display: block;
-      }
-      .dropdown-content li a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
+.scrolling-menu {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
+.scrolling-menu li {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.scrolling-menu li a {
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 14px 20px;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+
+.scrolling-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #ffd700;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #343a40;
+  min-width: 220px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content li {
+  text-align: left;
+}
+
+.dropdown-content li a {
+  padding: 12px 16px;
+  color: white;
+  display: block;
+}
+
+.dropdown-content li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+             
+   
       .marquee-container {
   overflow: hidden;
   white-space: nowrap;
@@ -193,72 +213,58 @@
       <h1>Pickleball AES Mông Dương</h1>
     </header>
 
-    <nav class="main-menu">
-      <ul>
-        <li><a href="index.html">Trang Chủ🏠</a></li>
-        <li><a href="Tin-tuc.html">Tin Tức</a></li>
-        <li class="dropdown">
-          <a href="#">Hình Ảnh ▼</a>
-          <ul class="dropdown-content">
-            <li>
-              <a
-                href="#"
-                onclick="checkPassword('childhood')"
-                style="color: #ffd700; font-weight: bold"
-                >Hình Ảnh Trên Sân</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                onclick="checkPassword('family')"
-                style="color: #daa520; font-weight: bold"
-                >Hình Ảnh Giao lưu- Văn Nghệ</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#">Tham khảo về Pickleball ▼</a>
-          <ul class="dropdown-content">
-            <li>
-              <a href="https://bestsport.vn/luat-choi-pickleball/"
-                >Luật Chơi Pickleball Chuẩn Thi Đấu 2025</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.bing.com/search?pglt=41&q=h%C6%B0%E1%BB%9Bng+d%E1%BA%ABn+cho+ng%C6%B0%E1%BB%9Di+m%E1%BB%9Bi+t%E1%BA%ADp+ch%C6%A1i+pickleball&cvid=8526f103c74b47218b8c5caacf514e8e&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyCAgDEOkHGPxV0gEJMTM4NDRqMGoxqAIIsAIB&FORM=ANNAB1&PC=DCTS"
-                >Hướng dẫn cho người mơi tập chơi</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.bing.com/videos/riverview/relatedvideo?q=h%c6%b0%e1%bb%9bng+d%e1%ba%abn+cho+ng%c6%b0%e1%bb%9di+m%e1%bb%9bi+t%e1%ba%adp+ch%c6%a1i+pickleball&mid=3B3955C573649EB9FF353B3955C573649EB9FF35&FORM=VIRE&ajaxhist=0&ajaxserp=0"
-              >
-                Hướng dẫn cầm vợt Pickleball</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.bing.com/videos/riverview/relatedvideo?q=h%c6%b0%e1%bb%9bng+d%e1%ba%abn+cho+ng%c6%b0%e1%bb%9di+m%e1%bb%9bi+t%e1%ba%adp+ch%c6%a1i+pickleball&mid=3B3955C573649EB9FF353B3955C573649EB9FF35&FORM=VIRE&ajaxhist=0&ajaxserp=0"
-                >Khóa Học Pickleball Volley Cơ Bản</a
-              >
-            </li>
-            </ul>
-        
-        <li class="dropdown">
-          <a href="#">Video ▼</a>
-          <ul class="dropdown-content">
-            <li><a href="chien-than.html">Chiến Thần - Tổng Tài</a></li>
-            <li><a href="hinh-su-viet-nam.html">Hình Sự Việt Nam</a></li>
-           <li><a href="pickleball-video.html">THAM KHẢO Các Trận Đấu PickleBall Hay, Hấp dẫn</a></li>
-            
 
-            
-           </ul>
-       
-    </nav>
+<nav class="main-menu">
+  <div class="menu-container">
+    <ul class="scrolling-menu">
+      <li><a href="index.html">Trang Chủ</a></li>
+      <li><a href="Tin-tuc.html">Tin Tức</a></li>
+
+      <li class="dropdown">
+        <a href="#">Hình Ảnh</a>
+        <ul class="dropdown-content">
+          <li>
+            <a href="#" onclick="checkPassword('childhood')">Hình Ảnh Trên Sân</a>
+          </li>
+          <li>
+            <a href="#" onclick="checkPassword('family')">Hình Ảnh Giao lưu - Văn Nghệ</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Tham khảo về Pickleball</a>
+        <ul class="dropdown-content">
+          <li>
+            <a href="https://bestsport.vn/luat-choi-pickleball/">Luật Chơi Pickleball 2025</a>
+          </li>
+          <li>
+            <a href="https://www.bing.com/search?q=hướng+dẫn+pickleball">Hướng dẫn cho người mới tập chơi</a>
+          </li>
+          <li>
+            <a href="https://www.bing.com/videos/riverview/?q=cầm+vợt+pickleball">Hướng dẫn cầm vợt</a>
+          </li>
+          <li>
+            <a href="https://www.bing.com/videos/riverview/?q=volley+pickleball">Khóa học Pickleball Volley</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Video</a>
+        <ul class="dropdown-content">
+          <li><a href="chien-than.html">Chiến Thần - Tổng Tài</a></li>
+          <li><a href="hinh-su-viet-nam.html">Hình Sự Việt Nam</a></li>
+          <li><a href="pickleball-video.html">Các Trận Đấu Hay</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+  
+   
     <div class="marquee-container">
   <div class="marquee">
     Welcome to AES Mông Dương Pickleball Club 🏓💛
