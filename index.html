@@ -59,6 +59,11 @@
 .contact-details a:hover {
   text-decoration: underline;
 }
+      .dropdown-content li a {
+  padding: 16px 20px;
+  font-size: 15px;
+}
+
 ---------------------------------------
 
 nav.main-menu {
@@ -100,16 +105,53 @@ nav.main-menu {
   border-bottom: 2px solid #ffd700;
 }
 
+     
 .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
+  left: 0;
+  right: 0;
   background-color: #343a40;
-  min-width: 220px;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 10;
+  width: max-content;
+  min-width: 220px;
 }
+
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .scrolling-menu {
+    flex-direction: column;
+  }
+
+  .scrolling-menu li {
+    width: 100%;
+    border-bottom: 1px solid #444;
+  }
+
+  .scrolling-menu li a {
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown-content li a {
+    padding-left: 30px;
+  }
+}
+
+
+
+    
+
+
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -405,5 +447,21 @@ nav.main-menu {
         }
       }
     </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdowns = document.querySelectorAll(".dropdown > a");
+
+    dropdowns.forEach((toggle) => {
+      toggle.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const dropdownMenu = this.nextElementSibling;
+          dropdownMenu.style.display =
+            dropdownMenu.style.display === "block" ? "none" : "block";
+        }
+      });
+    });
+  });
+</script>
   </body>
 </html>
