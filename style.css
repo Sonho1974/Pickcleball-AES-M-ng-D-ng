@@ -1,3 +1,44 @@
+ .honor-section {
+        max-width: 1000px;
+        margin: 40px auto;
+        text-align: center;
+      }
+
+      .honor-title {
+        color: #5a4fcf;
+        margin-bottom: 20px;
+      }
+
+      .honor-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+      }
+
+      .honor-description {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .honor-column {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        text-align: left;
+      }
+
+      .honor-column.right {
+        text-align: right;
+      }
+
+      .honor-caption {
+        font-size: 16px;
+        font-weight: bold;
 body {
   margin: 0;
   padding: 0;
