@@ -9,18 +9,22 @@
       rel="stylesheet"
     />
     <style>
+
+
       body {
         font-family: "Roboto", sans-serif;
         margin: 0;
         background: #f0f2f5;
         color: #333;
       }
+
       header {
         background: url("tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg") no-repeat center center/cover;
         padding: 60px 20px;
         text-align: center;
         color: white;
       }
+
       header h1 {
         font-family: "Playfair Display", serif;
         font-size: 42px;
@@ -30,196 +34,130 @@
 
       nav.main-menu {
         background: #343a40;
+        overflow-x: auto;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1000;
       }
 
-      .contact-section {
-  background-color: #1d3557;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
+      .menu-container {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+
+      .scrolling-menu {
+        display: inline-flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .scrolling-menu li {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .scrolling-menu li a {
+        display: inline-block;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 14px 20px;
+        white-space: nowrap;
+        transition: background 0.3s ease;
+      }
+
+      .scrolling-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid #ffd700;
+      }
 
       .dropdown {
-  position: relative;
-}
+        position: relative;
+      }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #343a40;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 9999; /* tăng ưu tiên hiển thị */
-}
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #343a40;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        min-width: 220px;
+      }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+      .dropdown-content li {
+        text-align: left;
+      }
 
-.contact-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-.contact-container h2 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  font-family: "Playfair Display", serif;
-  color: #ffd700;
-}
-.contact-details p {
-  font-size: 16px;
-  margin: 10px 0;
-}
-.contact-details a {
-  color: #ffdd57;
-  text-decoration: none;
-}
-.contact-details a:hover {
-  text-decoration: underline;
-}
       .dropdown-content li a {
-  padding: 16px 20px;
-  font-size: 15px;
-}
+        display: block;
+        padding: 12px 16px;
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+      }
 
+      .dropdown-content li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
 
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
 
-nav.main-menu {
-  background: #343a40;
-  overflow-x: auto;
-  white-space: nowrap;
-}
+      @media (max-width: 768px) {
+        .scrolling-menu {
+          flex-direction: column;
+        }
 
-.menu-container {
-  max-width: 100%;
-  overflow-x: auto;
-}
+        .scrolling-menu li {
+          width: 100%;
+          border-bottom: 1px solid #444;
+        }
 
-.scrolling-menu {
-  display: inline-flex;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
+        .scrolling-menu li a {
+          display: block;
+          width: 100%;
+        }
 
-.scrolling-menu li {
-  position: relative;
-  flex-shrink: 0;
-}
+        .dropdown-content {
+          position: relative;
+          width: 100%;
+          border-radius: 0;
+          box-shadow: none;
+        }
 
-.scrolling-menu li a {
-  display: inline-block;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  padding: 14px 20px;
-  white-space: nowrap;
-  transition: background 0.3s ease;
-}
+        .dropdown-content li a {
+          padding-left: 30px;
+        }
+      }
 
-.scrolling-menu li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-bottom: 2px solid #ffd700;
-}
-
-     
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #343a40;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  width: max-content;
-  min-width: 220px;
-}
-
-@media (max-width: 768px) {
-  .dropdown-content {
-    position: relative;
-    width: 100%;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .scrolling-menu {
-    flex-direction: column;
-  }
-
-  .scrolling-menu li {
-    width: 100%;
-    border-bottom: 1px solid #444;
-  }
-
-  .scrolling-menu li a {
-    display: block;
-    width: 100%;
-  }
-
-  .dropdown-content li a {
-    padding-left: 30px;
-  }
-}
-
-
-
-    
-
-
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content li {
-  text-align: left;
-}
-
-.dropdown-content li a {
-  padding: 12px 16px;
-  color: white;
-  display: block;
-}
-
-.dropdown-content li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-             
-   
       .marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-  background-color: #343a40;
-  color: #ffd700;
-  padding: 10px 0;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: "Playfair Display", serif;
-  position: relative;
-}
+        overflow: hidden;
+        white-space: nowrap;
+        background-color: #343a40;
+        color: #ffd700;
+        padding: 10px 0;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: "Playfair Display", serif;
+        position: relative;
+      }
 
-.marquee {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 15s linear infinite;
-}
+      .marquee {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 15s linear infinite;
+      }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+      }
 
       .datetime {
         text-align: center;
@@ -245,21 +183,57 @@ nav.main-menu {
         overflow: hidden;
         text-align: center;
       }
+
       .card img {
         width: 100%;
         height: 300px;
         object-fit: cover;
       }
+
       .card h3 {
         margin: 20px 0 10px;
         font-family: "Playfair Display", serif;
         font-size: 22px;
         color: #1d3557;
       }
+
       .card p {
         padding: 0 20px 20px;
         font-size: 16px;
         color: #444;
+      }
+
+      .contact-section {
+        background-color: #1d3557;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact-container h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+        font-family: "Playfair Display", serif;
+        color: #ffd700;
+      }
+
+      .contact-details p {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+
+      .contact-details a {
+        color: #ffdd57;
+        text-decoration: none;
+      }
+
+      .contact-details a:hover {
+        text-decoration: underline;
       }
 
       footer {
@@ -269,6 +243,10 @@ nav.main-menu {
         color: #888;
       }
     </style>
+
+
+  
+
   </head>
   <body>
     <header>
