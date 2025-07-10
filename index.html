@@ -38,6 +38,26 @@
   padding: 40px 20px;
   text-align: center;
 }
+
+      .dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #343a40;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* tăng ưu tiên hiển thị */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .contact-container {
   max-width: 800px;
   margin: 0 auto;
