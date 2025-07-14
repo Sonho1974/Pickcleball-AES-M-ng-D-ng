@@ -1,4 +1,73 @@
- .honor-section {
+      header {
+        background-color: #5a4fcf;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      header img {
+        height: 50px;
+      }
+      nav {
+        background-color: #4139b1;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      main.content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      section.poem {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      section.poem h2 {
+        font-family: "Playfair Display", serif;
+        color: #5a4fcf;
+      }
+      section.poem a {
+        color: #1a73e8;
+        font-weight: bold;
+      }
+      .video iframe {
+        width: 100%;
+        max-width: 560px;
+        height: 315px;
+        border: none;
+        margin-top: 10px;
+      }
+      section.comments {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      section.comments h3 {
+        color: #5a4fcf;
+      }
+
+.honor-section {
         max-width: 1000px;
         margin: 40px auto;
         text-align: center;
