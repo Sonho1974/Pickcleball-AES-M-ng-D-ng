@@ -201,3 +201,183 @@ form button {
 form button:hover {
   background-color: #4139b1;
 }
+
+!------------------------
+             body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        background: #f0f2f5;
+        color: #333;
+      }
+      header {
+        background: url("tranh-dan-tuong-3d-bien-xanh-cat-trang-nang-vang.jpg") no-repeat center center/cover;
+        padding: 60px 20px;
+        text-align: center;
+        color: white;
+      }
+      header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 42px;
+        margin: 0;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      }
+
+      nav.main-menu {
+        background: #343a40;
+      }
+
+      .contact-section {
+  background-color: #1d3557;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.contact-container h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  color: #ffd700;
+}
+.contact-details p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+.contact-details a {
+  color: #ffdd57;
+  text-decoration: none;
+}
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+      nav.main-menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      nav.main-menu ul li {
+        position: relative;
+        margin: 0 15px;
+      }
+      nav.main-menu ul li a {
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 10px 14px;
+        display: inline-block;
+        border-radius: 5px;
+      }
+      nav.main-menu ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      nav.main-menu ul li:hover .dropdown-content {
+        display: block;
+      }
+
+      nav.main-menu ul li .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        background-color: #343a40;
+        min-width: 220px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .dropdown-content li {
+        text-align: left;
+      }
+      .dropdown-content li a {
+        padding: 12px 16px;
+        color: white;
+        display: block;
+      }
+      .dropdown-content li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #343a40;
+  color: #ffd700;
+  padding: 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+  position: relative;
+}
+
+.marquee {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+      .datetime {
+        text-align: center;
+        font-size: 14px;
+        margin: 10px 0;
+        color: #555;
+      }
+
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding: 40px 20px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+      }
+      .card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      .card h3 {
+        margin: 20px 0 10px;
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        color: #1d3557;
+      }
+      .card p {
+        padding: 0 20px 20px;
+        font-size: 16px;
+        color: #444;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #888;
+      }
+    
