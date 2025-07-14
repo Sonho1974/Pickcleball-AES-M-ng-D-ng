@@ -1,4 +1,21 @@
-      header {
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          border: 3px solid blue; /* Viền ngoài đậm màu đỏ */
+          text-align: center;
+        }
+
+        th,
+        td {
+          border: 1px solid #333; /* Đường kẻ đơn mảnh cho các ô */
+          padding: 8px;
+        }
+
+        th {
+          background-color: lightgray;
+        }
+
+header {
         background-color: #5a4fcf;
         color: white;
         padding: 20px;
