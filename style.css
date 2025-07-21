@@ -3,8 +3,7 @@
 }
 
 .dropdown > a::after {
-  content: " ▼";
-  font-size: 12px;
+  content: ""; /* Xoá mũi tên ▼ */
 }
 
 .dropdown-content {
@@ -16,8 +15,9 @@
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 999;
-  min-width: 220px;
+  min-width: 200px;
   padding: 8px 0;
+  overflow: hidden;
 }
 
 .dropdown-content li {
@@ -31,11 +31,13 @@
   color: #333;
   font-size: 15px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.25s ease;
+  white-space: nowrap;
 }
 
 .dropdown-content li a:hover {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
+  color: #000;
 }
 
 .dropdown:hover .dropdown-content {
