@@ -30,15 +30,18 @@
       padding: 10px;
     }
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
       margin-top: 15px;
     }
     .gallery-grid img {
-      width: 100%;
+      width: 220px;
+      height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
       transition: transform 0.3s;
     }
     .gallery-grid img:hover {
@@ -60,6 +63,31 @@
     .back-home a:hover {
       text-decoration: underline;
     }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 9999;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .lightbox.visible {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -73,44 +101,38 @@
   <p style="text-align: center;">Những bức ảnh ghi lại những khoảnh khắc đáng nhớ trên bàn nhậu ngày 09-July-2025.</p>
   
   <div class="gallery-grid">
-   
-      <img src="09-July- (2).jpg" alt="" />
-      <img src="09-July- (3).jpg" alt="" />
-      <img src="09-July- (4).jpg" alt="" />
-      <img src="09-July- (5).jpg" alt="" />
-      <img src="09-July- (6).jpg" alt="" />
-      <img src="09-July- (7).jpg" alt="" />
-      <img src="09-July- (8).jpg" alt="" />
-      <img src="09-July- (9).jpg" alt="" />
-     <img src="09-July- (10).jpg" alt="" />
-     <img src="09-July- (11).jpg" alt="" />
-       <img src="09-July- (12).jpg" alt="" />
-       <img src="09-July- (13).jpg" alt="" />
-       <img src="09-July- (14).jpg" alt="" />
-       <img src="09-July- (15).jpg" alt="" />
-       <img src="09-July- (16).jpg" alt="" />
-       <img src="09-July- (17).jpg" alt="" />
-   
-           
+    <img src="09-July- (2).jpg" alt="" />
+    <img src="09-July- (3).jpg" alt="" />
+    <img src="09-July- (4).jpg" alt="" />
+    <img src="09-July- (5).jpg" alt="" />
+    <img src="09-July- (6).jpg" alt="" />
+    <img src="09-July- (7).jpg" alt="" />
+    <img src="09-July- (8).jpg" alt="" />
+    <img src="09-July- (9).jpg" alt="" />
+    <img src="09-July- (10).jpg" alt="" />
+    <img src="09-July- (11).jpg" alt="" />
+    <img src="09-July- (12).jpg" alt="" />
+    <img src="09-July- (13).jpg" alt="" />
+    <img src="09-July- (14).jpg" alt="" />
+    <img src="09-July- (15).jpg" alt="" />
+    <img src="09-July- (16).jpg" alt="" />
+    <img src="09-July- (17).jpg" alt="" />
   </div>
-   <p style="text-align: center;">Những bức ảnh ghi lại những khoảnh khắc đáng nhớ trên bàn nhậu ngày 23-July-2025.</p>
-  
+
+  <p style="text-align: center; margin-top: 40px;">Những bức ảnh ghi lại những khoảnh khắc đáng nhớ trên bàn nhậu ngày 23-July-2025.</p>
+
   <div class="gallery-grid">
-   
-      <img src="23-7 (1).jpg" alt="" />
-      <img src="23-7 (2).jpg" alt="" />
-      <img src="23-7 (4).jpg" alt="" />
-      <img src="23-7 (6).jpg" alt="" />
-      <img src="23-7 (8).jpg" alt="" />
-      <img src="23-7 (10).jpg" alt="" />
-        
-           
+    <img src="23-7 (1).jpg" alt="" />
+    <img src="23-7 (2).jpg" alt="" />
+    <img src="23-7 (4).jpg" alt="" />
+    <img src="23-7 (6).jpg" alt="" />
+    <img src="23-7 (8).jpg" alt="" />
+    <img src="23-7 (10).jpg" alt="" />
   </div>
 </section>
 
 <section class="video-section">
   <h2>🎬 Video hoạt động</h2>
-
   <div class="video-item">
     <h3>Lễ Khai Mạc giải đấu Pickleball nội bộ AES-MD tháng 6 năm 2025</h3>
     <video width="640" height="360" controls>
@@ -118,15 +140,32 @@
       Trình duyệt của bạn không hỗ trợ video này.
     </video>
   </div>
-
-  
-
-  
 </section>
 
 <div class="back-home">
   <a href="index.html">← Quay về Trang Chủ</a>
 </div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="Zoom Image" id="lightbox-img">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('visible');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('visible');
+  });
+</script>
 
 </body>
 </html>
