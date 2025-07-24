@@ -70,7 +70,7 @@
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -79,14 +79,30 @@
       transition: opacity 0.3s;
       z-index: 9999;
     }
+    .lightbox.visible {
+      visibility: visible;
+      opacity: 1;
+    }
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
+      user-select: none;
     }
-    .lightbox.visible {
-      visibility: visible;
-      opacity: 1;
+
+    .lightbox-nav {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .lightbox-prev {
+      left: 0;
+    }
+    .lightbox-next {
+      right: 0;
     }
   </style>
 </head>
@@ -99,7 +115,6 @@
 <section class="gallery">
   <h2>📸 Bộ sưu tập hình ảnh</h2>
   <p style="text-align: center;">Những bức ảnh ghi lại những khoảnh khắc đáng nhớ trên bàn nhậu ngày 09-July-2025.</p>
-  
   <div class="gallery-grid">
     <img src="09-July- (2).jpg" alt="" />
     <img src="09-July- (3).jpg" alt="" />
@@ -120,7 +135,6 @@
   </div>
 
   <p style="text-align: center; margin-top: 40px;">Những bức ảnh ghi lại những khoảnh khắc đáng nhớ trên bàn nhậu ngày 23-July-2025.</p>
-
   <div class="gallery-grid">
     <img src="23-7 (1).jpg" alt="" />
     <img src="23-7 (2).jpg" alt="" />
@@ -148,23 +162,70 @@
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
+  <div class="lightbox-nav lightbox-prev"></div>
   <img src="" alt="Zoom Image" id="lightbox-img">
+  <div class="lightbox-nav lightbox-next"></div>
 </div>
 
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
+  const images = Array.from(document.querySelectorAll('.gallery-grid img'));
+  let currentIndex = 0;
 
-  document.querySelectorAll('.gallery-grid img').forEach(img => {
+  // Mở lightbox
+  images.forEach((img, index) => {
     img.addEventListener('click', () => {
       lightboxImg.src = img.src;
+      currentIndex = index;
       lightbox.classList.add('visible');
     });
+  });
+
+  function showImage(index) {
+    if (index >= 0 && index < images.length) {
+      lightboxImg.src = images[index].src;
+      currentIndex = index;
+    }
+  }
+
+  document.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+
+  document.querySelector('.lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
   });
 
   lightbox.addEventListener('click', () => {
     lightbox.classList.remove('visible');
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('visible')) return;
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    if (e.key === 'Escape') lightbox.classList.remove('visible');
+  });
+
+  // Vuốt trên điện thoại
+  let touchStartX = 0;
+  let touchEndX = 0;
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  lightbox.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchStartX - touchEndX;
+    if (swipeDistance > 50) showImage(currentIndex + 1); // Vuốt trái
+    else if (swipeDistance < -50) showImage(currentIndex - 1); // Vuốt phải
+  }
 </script>
 
 </body>
