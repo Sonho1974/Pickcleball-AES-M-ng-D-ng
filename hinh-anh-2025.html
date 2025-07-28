@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -30,15 +31,18 @@
       padding: 10px;
     }
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
       margin-top: 15px;
     }
     .gallery-grid img {
-      width: 100%;
+      width: 220px;
+      height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
       transition: transform 0.3s;
     }
     .gallery-grid img:hover {
@@ -60,6 +64,47 @@
     .back-home a:hover {
       text-decoration: underline;
     }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 9999;
+    }
+    .lightbox.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      user-select: none;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .lightbox-prev {
+      left: 0;
+    }
+    .lightbox-next {
+      right: 0;
+    }
   </style>
 </head>
 <body>
@@ -71,10 +116,8 @@
 <section class="gallery">
   <h2>📸 Bộ sưu tập hình ảnh</h2>
   <p style="text-align: center;">Những bức ảnh ghi lại những khoảnh khắc đáng nhớ tại sân Pickleball AES-Housing.</p>
-  
   <div class="gallery-grid">
-   
-      <img src="San1.jpg" alt="" />
+    <img src="San1.jpg" alt="" />
       <img src="san2.jpg" alt="" />
       <img src="San-pick-aes.jpg" alt="" />
       <img src="7-JAN-2025.jpg" alt="" />
@@ -146,8 +189,9 @@
       <img src=" PKL-AES-MD-2 (30).jpg" alt="" />
     
 
-
   </div>
+
+ 
 </section>
 
 <section class="video-section">
@@ -215,5 +259,74 @@
   <a href="index.html">← Quay về Trang Chủ</a>
 </div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-nav lightbox-prev"></div>
+  <img src="" alt="Zoom Image" id="lightbox-img">
+  <div class="lightbox-nav lightbox-next"></div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const images = Array.from(document.querySelectorAll('.gallery-grid img'));
+  let currentIndex = 0;
+
+  // Mở lightbox
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      currentIndex = index;
+      lightbox.classList.add('visible');
+    });
+  });
+
+  function showImage(index) {
+    if (index >= 0 && index < images.length) {
+      lightboxImg.src = images[index].src;
+      currentIndex = index;
+    }
+  }
+
+  document.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex - 1);
+  });
+
+  document.querySelector('.lightbox-next').addEventListener('click', (e) => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('visible');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('visible')) return;
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    if (e.key === 'Escape') lightbox.classList.remove('visible');
+  });
+
+  // Vuốt trên điện thoại
+  let touchStartX = 0;
+  let touchEndX = 0;
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  lightbox.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchStartX - touchEndX;
+    if (swipeDistance > 50) showImage(currentIndex + 1); // Vuốt trái
+    else if (swipeDistance < -50) showImage(currentIndex - 1); // Vuốt phải
+  }
+</script>
+
 </body>
 </html>
+
